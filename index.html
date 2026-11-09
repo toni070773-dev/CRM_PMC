@@ -284,6 +284,68 @@ footer.actbar .progress { flex: 1; font-size: 12px; color: var(--text-2); }
 .dia-client-prio.B { background: #fff7d1; color: #8a6a00; }
 .dia-client-prio.R { background: #fde0de; color: #a52821; }
 
+/* Vista Comandes (ofertes de mobiliari) */
+.cmd-wrap { padding: 12px; max-width: 1200px; margin: 0 auto; }
+.cmd-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-bottom: 12px; }
+.cmd-kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px;
+  border-left: 5px solid var(--border); cursor: pointer; text-align: left; }
+.cmd-kpi.on { box-shadow: 0 0 0 2px var(--primary) inset; }
+.cmd-kpi .k-lbl { font-size: 12px; color: var(--text-2); font-weight: 600; }
+.cmd-kpi .k-num { font-size: 22px; font-weight: 700; line-height: 1.2; color: var(--text); }
+.cmd-kpi .k-sub { font-size: 12px; color: var(--text-2); }
+.cmd-tools { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 10px; }
+.cmd-tools input[type=search] { flex: 1 1 220px; min-width: 0; padding: 9px 12px; border: 1px solid var(--border);
+  border-radius: 10px; background: var(--surface); color: var(--text); }
+.cmd-tools select { padding: 7px 8px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface);
+  color: var(--text); font-size: 13px; font-weight: 600; }
+.cmd-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden; font-size: 13px; }
+.cmd-table th { text-align: left; color: var(--text-2); font-weight: 600; padding: 8px 10px; background: var(--surface-2);
+  border-bottom: 1px solid var(--border); white-space: nowrap; }
+.cmd-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.cmd-table tr:last-child td { border-bottom: 0; }
+.cmd-table td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cmd-table tr.grp td { background: var(--primary-soft); color: var(--primary); font-weight: 700; }
+.cmd-table .c-client { font-weight: 600; }
+.cmd-table .c-sub { color: var(--text-2); font-size: 12px; margin-top: 2px; }
+.cmd-table a { color: var(--primary); text-decoration: none; }
+.cmd-estat { padding: 4px 6px; border-radius: 999px; border: 1px solid var(--border); font-size: 12px; font-weight: 700; }
+.cmd-estat.Pendent, .cmd-kpi.Pendent { border-color: #ff9500; }
+.cmd-estat.Pendent { background: #ffe9cc; color: #a85c00; }
+.cmd-estat.Negociacio, .cmd-kpi.Negociacio { border-color: #5ac8fa; }
+.cmd-estat.Negociacio { background: #e0f4fd; color: #0b6a94; }
+.cmd-estat.Acceptada, .cmd-kpi.Acceptada { border-color: #34c759; }
+.cmd-estat.Acceptada { background: #e6f7ec; color: #1f8a3b; }
+.cmd-estat.Servida, .cmd-kpi.Servida { border-color: #3a7d2c; }
+.cmd-estat.Servida { background: #dcefd6; color: #2a5e1e; }
+.cmd-estat.Rebutjada, .cmd-kpi.Rebutjada { border-color: #ff3b30; }
+.cmd-estat.Rebutjada { background: #fde0de; color: #a52821; }
+.cmd-kpi.Seguiment { border-left-color: #8e6efb; }
+.cmd-venc { color: #a52821; font-weight: 700; }
+.cmd-icon { background: transparent; border: 0; font-size: 16px; padding: 2px 4px; }
+@media (max-width: 719px) {
+  .cmd-wrap { padding: 10px 10px 16px; }
+  .cmd-kpis { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .cmd-kpi { padding: 6px 8px; border-left-width: 4px; }
+  .cmd-kpi .k-lbl { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cmd-kpi .k-num { font-size: 18px; }
+  .cmd-kpi .k-sub { font-size: 10px; }
+  .cmd-tools .btn { padding: 7px 10px; font-size: 13px; }
+  .cmd-table, .cmd-table tbody { display: block; border: 0; background: transparent; }
+  .cmd-table thead { display: none; }
+  .cmd-table tr { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; }
+  .cmd-table td { border: 0; padding: 0; }
+  .cmd-table td.c-data { grid-column: 1; color: var(--text-2); font-size: 12px; }
+  .cmd-table td.c-tot { grid-column: 2; grid-row: 1; font-weight: 700; font-size: 15px; }
+  .cmd-table td.c-main { grid-column: 1 / -1; }
+  .cmd-table td.c-est { grid-column: 1; }
+  .cmd-table td.c-seg { grid-column: 1 / -1; font-size: 12px; }
+  .cmd-table td.c-seg:empty { display: none; }
+  .cmd-table td.c-act { grid-column: 2; grid-row: 4; text-align: right; }
+  .cmd-table tr.grp { display: block; background: var(--primary-soft); padding: 6px 12px; }
+}
+
 /* Helper hidden */
 .hide { display: none !important; }
 
@@ -372,6 +434,7 @@ body.in-detail #filterBar { display: none !important; }
     <button id="tabList" class="active">Lista</button>
     <button id="tabMap">Mapa</button>
     <button id="tabRutes">🗺 Rutes</button>
+    <button id="tabComandes">📋 Comandes</button>
   </nav>
 
   <div id="filterBar" class="toolbar">
@@ -543,6 +606,60 @@ body.in-detail #filterBar { display: none !important; }
       <p id="nc_error" style="color:red;font-size:12px;margin:8px 0 0;display:none;"></p>
     </div>
   </div>
+
+  <!-- Modal comanda / oferta de mobiliari -->
+  <div class="modal-overlay hide" id="modalComanda">
+    <div class="modal-box" style="background:var(--surface);">
+      <h2 id="cm_titol">📋 Comanda</h2>
+      <input type="hidden" id="cm_id">
+      <div class="modal-row">
+        <div class="modal-field"><label>Nº oferta</label><input type="text" id="cm_num" placeholder="ex: 11/1717"></div>
+        <div class="modal-field"><label>Data oferta</label><input type="date" id="cm_data"></div>
+      </div>
+      <div class="modal-row">
+        <div class="modal-field"><label>Codi client</label><input type="text" id="cm_codi" placeholder="ex: 24993"></div>
+        <div class="modal-field"><label>Contacte</label><input type="text" id="cm_contacte"></div>
+      </div>
+      <div class="modal-field"><label>Client *</label><input type="text" id="cm_client"></div>
+      <div class="modal-field"><label>Concepte / espai</label><input type="text" id="cm_concepte" placeholder="ex: Despatx 408-A"></div>
+      <div class="modal-field"><label>Descripció / productes</label><textarea id="cm_desc"></textarea></div>
+      <div class="modal-row">
+        <div class="modal-field"><label>Base imposable (€)</label><input type="number" step="0.01" id="cm_base"></div>
+        <div class="modal-field"><label>Total amb IVA (€)</label><input type="number" step="0.01" id="cm_total"></div>
+      </div>
+
+      <div class="modal-section">Seguiment</div>
+      <div class="modal-row">
+        <div class="modal-field"><label>Estat</label>
+          <select id="cm_estat"></select>
+        </div>
+        <div class="modal-field"><label>Data de seguiment</label><input type="date" id="cm_seg"></div>
+      </div>
+      <div class="modal-row">
+        <div class="modal-field"><label>Nº comanda del client</label><input type="text" id="cm_numcli" placeholder="ex: 4200446895"></div>
+        <div class="modal-field" id="cm_motiu_wrap"><label>Motiu de rebuig</label>
+          <input type="text" id="cm_motiu" list="cm_motius" placeholder="Tria o escriu…">
+          <datalist id="cm_motius">
+            <option value="Preu"><option value="Termini d'entrega"><option value="Competència">
+            <option value="Sense pressupost"><option value="Projecte cancel·lat"><option value="Han triat una altra opció">
+            <option value="Sense resposta">
+          </datalist>
+        </div>
+      </div>
+      <div class="modal-field"><label>Notes</label><textarea id="cm_notes" placeholder="Trucades, canvis demanats…"></textarea></div>
+      <div class="modal-field"><label>Fitxer de l'oferta</label><div id="cm_fitxer" style="font-size:12px;color:var(--text-2);word-break:break-all;">—</div></div>
+
+      <div class="modal-actions" style="justify-content:space-between;">
+        <button class="btn danger" id="cm_del">🗑 Esborrar</button>
+        <span style="display:flex;gap:10px;">
+          <button class="btn" id="cm_cancel">Cancel·lar</button>
+          <button class="btn primary" id="cm_save">💾 Guardar</button>
+        </span>
+      </div>
+      <p id="cm_error" style="color:red;font-size:12px;margin:8px 0 0;display:none;"></p>
+    </div>
+  </div>
+  <input id="dirInputOfertes" type="file" webkitdirectory multiple style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
 </div>
 <div id="toast"></div>
 
@@ -560,8 +677,8 @@ body.in-detail #filterBar { display: none !important; }
    ========================================================================= */
 
 const DB_NAME = 'crm_app';
-const DB_VERSION = 1;
-const STORES = { CLIENTS: 'clients', GEO: 'geocache', META: 'meta' };
+const DB_VERSION = 2;   // v2: magatzem de comandes de mobiliari
+const STORES = { CLIENTS: 'clients', GEO: 'geocache', META: 'meta', COMANDES: 'comandes' };
 
 /* ---------- Toast ---------- */
 const toastEl = document.getElementById('toast');
@@ -586,9 +703,12 @@ function openDB() {
         db.createObjectStore(STORES.GEO, { keyPath: 'key' });
       if (!db.objectStoreNames.contains(STORES.META))
         db.createObjectStore(STORES.META, { keyPath: 'k' });
+      if (!db.objectStoreNames.contains(STORES.COMANDES))
+        db.createObjectStore(STORES.COMANDES, { keyPath: 'id' });
     };
     req.onsuccess = (e) => resolve(e.target.result);
     req.onerror = (e) => reject(e.target.error);
+    req.onblocked = () => toast('⚠ Tanca les altres pestanyes del CRM i torna a carregar (Ctrl+F5)', 6000);
   });
 }
 async function dbAll(store) {
@@ -860,6 +980,8 @@ const state = {
              seccio: '', seccioMode: 'compra',     // seccioMode: compra | no | sense
              senseComprar: false, diesSenseComprar: 90 },
   geo: { running: false, queue: [], done: 0, total: 0 },
+  comandes: [],        // comandes / ofertes de mobiliari (magatzem COMANDES)
+  cf: { q: '', estats: new Set(), periode: 'tot', ordre: 'data', nomesSeguiment: false },
 };
 
 /* ---------- Rendering ---------- */
@@ -2271,7 +2393,8 @@ async function importFile(file) {
   await dbClear(STORES.CLIENTS);
   await dbBulkPut(STORES.CLIENTS, clients);
   await dbPut(STORES.META, { k: 'lastImport', v: new Date().toISOString(), filename: file.name, count: clients.length });
-  toast(`Importadas ${clients.length} filas`);
+  const cmdImp = await mergeComandesDeFitxer(file);   // les comandes mai s'esborren en importar
+  toast(`Importadas ${clients.length} filas` + (cmdImp ? ` · ${cmdImp} comandes` : ''));
   await loadFromDB();
   applyFilters();
   if (state.view === 'list') renderList(); else renderMap();
@@ -2284,7 +2407,14 @@ async function importFile(file) {
 async function syncFile(file) {
   const fitxer = await llegirFitxerClients(file);
   if (!fitxer) return;
-  if (!fitxer.length) { toast('No se han encontrado filas válidas'); return; }
+  if (!fitxer.length) {
+    // Fitxer només de comandes (sense clients): ajuntar només les comandes
+    const n = await mergeComandesDeFitxer(file);
+    if (!n) { toast('No se han encontrado filas válidas'); return; }
+    toast(`🔄 Sincronitzat: ${n} comandes actualitzades · clients sense canvis`, 3500);
+    if (state.view === 'comandes') renderComandes(); else switchView('comandes');
+    return;
+  }
 
   const locals = new Map((await dbAll(STORES.CLIENTS)).map(e => [e.id_sede, e]));
   const maxData = (a, b) => ((a || '') > (b || '') ? a : b) || '';
@@ -2316,8 +2446,9 @@ async function syncFile(file) {
   }
 
   if (toPut.length) await dbBulkPut(STORES.CLIENTS, toPut);
+  const cmdSync = await mergeComandesDeFitxer(file);
   await dbPut(STORES.META, { k: 'lastSync', v: new Date().toISOString(), filename: file.name, nous, actualitzats });
-  toast(`🔄 Sincronitzat: ${actualitzats} actualitzats · ${nous} nous · cap esborrat`, 3500);
+  toast(`🔄 Sincronitzat: ${actualitzats} actualitzats · ${nous} nous · cap esborrat` + (cmdSync ? ` · ${cmdSync} comandes` : ''), 3500);
   await loadFromDB();
   applyFilters();
   if (state.view === 'list') renderList(); else if (state.view === 'map') renderMap();
@@ -2806,9 +2937,11 @@ async function exportXlsx() {
   const ws = XLSX.utils.aoa_to_sheet(data);
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'PMC');
+  const wsCmd = fullComandesPerExport();   // 2n full: comandes de mobiliari (per sincronitzar)
+  if (wsCmd) XLSX.utils.book_append_sheet(wb, wsCmd, 'Comandes');
   const stamp = new Date().toISOString().slice(0,10).replace(/-/g,'');
   XLSX.writeFile(wb, `CRM_${stamp}.xlsx`);
-  toast('Exportado XLSX');
+  toast('Exportado XLSX' + (wsCmd ? ` (+ ${state.comandes.length} comandes)` : ''));
 }
 
 /* ---------- Filtering ---------- */
@@ -3010,6 +3143,18 @@ function wire() {
   document.getElementById('tabList').onclick = () => switchView('list');
   document.getElementById('tabMap').onclick = () => switchView('map');
   document.getElementById('tabRutes').onclick = () => switchView('rutes');
+  document.getElementById('tabComandes').onclick = () => switchView('comandes');
+  // Comandes de mobiliari
+  document.getElementById('dirInputOfertes').addEventListener('change', (e) => {
+    const fl = e.target.files;
+    if (fl && fl.length) importarCarpetaOfertes(fl).then(() => { e.target.value = ''; });
+  });
+  document.getElementById('cm_save').onclick = desarComandaModal;
+  document.getElementById('cm_cancel').onclick = tancarComanda;
+  document.getElementById('cm_del').onclick = esborrarComandaModal;
+  document.getElementById('modalComanda').addEventListener('click', (e) => {
+    if (e.target.id === 'modalComanda') tancarComanda();
+  });
   // No click handler on btnImport: the <label> wraps the file input and triggers it natively.
   document.getElementById('fileInput').addEventListener('change', (e) => {
     const f = e.target.files[0];
@@ -3073,7 +3218,8 @@ function switchView(v) {
   document.getElementById('tabList').classList.toggle('active', v === 'list');
   document.getElementById('tabMap').classList.toggle('active', v === 'map');
   document.getElementById('tabRutes').classList.toggle('active', v === 'rutes');
-  if (v === 'rutes') {
+  document.getElementById('tabComandes').classList.toggle('active', v === 'comandes');
+  if (v === 'rutes' || v === 'comandes') {
     document.getElementById('filterBar').classList.add('hide');
   } else {
     document.getElementById('filterBar').classList.remove('hide');
@@ -3084,12 +3230,494 @@ function switchView(v) {
     geocodeAll();
   }
   else if (v === 'rutes') renderRutes();
+  else if (v === 'comandes') renderComandes();
+  if (v !== 'comandes') applyFilters();   // torna a posar el comptador de clients
+}
+
+/* =========================================================================
+   📋 COMANDES — seguiment d'ofertes / comandes de mobiliari
+   - Llegeix les ofertes (.xls/.xlsx amb la plantilla PMC) d'una carpeta (Treballs_especials)
+   - Estats: Pendent → Negociació → Acceptada → Servida, o Rebutjada (amb motiu)
+   - Es guarden a IndexedDB (magatzem 'comandes') i viatgen a la pestanya "Comandes"
+     de l'Excel d'📤 Exportar, perquè 🔄 Sincronitzar les ajunti per 'modificat'
+   ========================================================================= */
+const CMD_ESTATS = [
+  { k: 'Pendent',    lbl: '⏳ Pendent',     cls: 'Pendent' },
+  { k: 'Negociació', lbl: '💬 Negociació',  cls: 'Negociacio' },
+  { k: 'Acceptada',  lbl: '✅ Acceptada',   cls: 'Acceptada' },
+  { k: 'Servida',    lbl: '🚚 Servida',     cls: 'Servida' },
+  { k: 'Rebutjada',  lbl: '❌ Rebutjada',   cls: 'Rebutjada' },
+];
+const CMD_OBERTS = new Set(['Pendent', 'Negociació']);
+const CMD_DES_DE = '2026-01-01';   // només ofertes a partir d'aquesta data (les del 2025 no interessen)
+const cmdVigent = (c) => !c.eliminada && (!c.data || c.data >= CMD_DES_DE);
+const CMD_CAMPS = ['id','num_oferta','data','codi_client','client','contacte','concepte','descripcio','base','iva','total',
+  'termini','estat','data_seguiment','motiu_rebuig','num_comanda_client','notes','fitxer','eliminada','creat','modificat'];
+const cmdEstatCls = (k) => (CMD_ESTATS.find(e => e.k === k) || CMD_ESTATS[0]).cls;
+const avuiISO = () => new Date().toISOString().slice(0, 10);
+// 1.234,56 € (sempre amb punt de milers; toLocaleString('es-ES') no el posa a 4 xifres)
+const euro2 = (n) => {
+  if (typeof n !== 'number' || !isFinite(n)) return '—';
+  const [ent, dec] = Math.abs(n).toFixed(2).split('.');
+  return (n < 0 ? '-' : '') + ent.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ',' + dec + ' €';
+};
+function cmdVencut(c) { return c.data_seguiment && CMD_OBERTS.has(c.estat) && c.data_seguiment <= avuiISO(); }
+
+async function loadComandes() {
+  try { state.comandes = await dbAll(STORES.COMANDES); }
+  catch (e) { console.error(e); state.comandes = []; }
+}
+async function guardarComanda(c) {
+  c.modificat = new Date().toISOString();
+  if (!c.creat) c.creat = c.modificat;
+  await dbPut(STORES.COMANDES, c);
+  const i = state.comandes.findIndex(x => x.id === c.id);
+  if (i >= 0) state.comandes[i] = c; else state.comandes.push(c);
+}
+
+/* ---- Lectura d'una oferta amb la plantilla PMC ---- */
+function cmdNum(v) {
+  if (typeof v === 'number') return v;
+  const n = parseEuroNumber(String(v || '').replace(/€/g, ''));
+  return isFinite(n) ? n : 0;
+}
+function cmdData(v) {
+  if (typeof v === 'number' && v > 30000 && v < 80000) return excelSerialToISO(v);
+  const m = String(v || '').match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/);
+  return m ? ddmmyyyyToISO(m[0]) : '';
+}
+function parseOfertaWorkbook(wb, file, relPath) {
+  const sh = wb.Sheets[wb.SheetNames[0]];
+  if (!sh || !sh['!ref']) return null;
+  // Sempre des d'A1 i amb files buides, perquè fila/columna siguin les reals de la plantilla
+  const rang = XLSX.utils.encode_range({ s: { r: 0, c: 0 }, e: XLSX.utils.decode_range(sh['!ref']).e });
+  const raw = XLSX.utils.sheet_to_json(sh, { header: 1, raw: true, defval: '', blankrows: true, range: rang });
+  const txt = (r, c) => String((raw[r] || [])[c] ?? '').trim();
+  const primerText = (r) => { for (let c = 0; c < 4; c++) { const t = txt(r, c); if (t) return t; } return ''; };
+  const aDreta = (r, c) => { const row = raw[r] || []; for (let j = c + 1; j < row.length; j++) if (String(row[j]).trim() !== '') return row[j]; return ''; };
+
+  let codi = '', data = '', rowAa = -1, rowHdr = -1, base = 0, iva = 0, total = 0, termini = '';
+  for (let r = 0; r < Math.min(raw.length, 120); r++) {
+    const row = raw[r] || [];
+    for (let c = 0; c < row.length; c++) {
+      const t = String(row[c] ?? '').trim();
+      if (!t) continue;
+      if (!codi && /^(CLIENTE|N[ºo°.]?\s*Client[e]?)$/i.test(t)) codi = String(aDreta(r, c)).trim();
+      else if (!data && /^(Data|Fecha)$/i.test(t)) data = cmdData(aDreta(r, c));
+      else if (rowAa < 0 && rowHdr < 0 && /(^A\/a|^A\/\s|^Att|Oferta\s*:|Ref\.)/i.test(t)) rowAa = r;
+      else if (rowHdr < 0 && /^DESCRIPCI[OÓ]/i.test(t)) rowHdr = r;
+      else if (/^Total$/.test(t) && !base) base = cmdNum(aDreta(r, c));
+      else if (/^IVA/i.test(t) && !iva) iva = cmdNum(aDreta(r, c));
+      else if (/^TOTAL$/.test(t)) total = cmdNum(aDreta(r, c));
+      else if (!termini && /^(Termini|Plazo)/i.test(t)) termini = t.replace(/^(Termini|Plazo)[^:]*:\s*/i, '');
+    }
+  }
+  if (!(total > 0)) return null;   // no és una oferta amb la plantilla
+
+  let client = '', contacte = '', num = '', concepte = '';
+  if (rowAa >= 0) {
+    const aa = primerText(rowAa);
+    const mNum = aa.match(/(?:Oferta|Ref\.?)\s*:?\s*([0-9][0-9\/.\-]*)/i);
+    if (mNum) num = mNum[1].replace(/[.\-]$/, '');
+    if (!data) data = cmdData(aa);
+    contacte = aa.replace(/^(A\/a:?|A\/|Att\.?\s*(Sr\.|Sra\.)?)\s*/i, '')
+      .split(/\s+-\s+|\s+·\s+|\s{2,}|Oferta|Ref\.|\d{1,2}\/\d{1,2}\/\d{2,4}/i)[0].trim();
+    // Client: 2 files per sobre de l'"Att."; a les plantilles antigues allà hi ha "PMC GRUP" i el client va just a sobre
+    client = primerText(rowAa - 2);
+    if (!client || /PMC\s*GRUP/i.test(client)) client = primerText(rowAa - 1);
+    if (/PMC\s*GRUP|Empord[àa],?\s*1|Can Casablancas/i.test(client)) client = '';
+    const seg = primerText(rowAa + 1);
+    if (seg && !/^DESCRIPCI/i.test(seg)) concepte = seg;
+  }
+  if (!client && rowAa < 0) client = primerText(8) || primerText(9);
+  // Netejar: treure NIF, adreça i codis ("Empresa X - 12345" → codi 12345)
+  const trossos = client.replace(/\s*-?\s*[A-Z]?\d{7,8}[A-Z]?\s*$/, '').split(/\s+-\s*|\s*-\s+/);
+  const nets = [];
+  for (const t of trossos) {
+    const tt = t.trim().replace(/[,;]+$/, '');
+    if (/^\d{4,6}$/.test(tt)) { if (!codi) codi = tt; continue; }
+    if (!tt || /\d/.test(tt) || /^(Av\.?|Avda|C\/|Carrer|Calle|Ctra)/i.test(tt)) continue;
+    nets.push(tt);
+  }
+  client = nets.join(' - ');
+  const parts = relPath.split('/');
+  if (!client) client = (parts[0] === 'Pressupostos' && parts.length > 2 ? parts[1] : parts[0]).replace(/_/g, ' ');
+  if (!data && file.lastModified) data = new Date(file.lastModified).toISOString().slice(0, 10);
+  const r2 = (n) => Math.round((n || 0) * 100) / 100;
+
+  // Línies de producte: "20× Taula Nova 140x60 …"
+  const linies = [];
+  if (rowHdr >= 0) {
+    const hdr = (raw[rowHdr] || []).map(x => String(x).trim());
+    const cDesc = Math.max(0, hdr.findIndex(x => /^DESCRIPCI/i.test(x)));
+    let cUds = hdr.findIndex(x => /^(UDS|UNITATS|UNIDADES|QUANTITAT|CANTIDAD)$/i.test(x));
+    if (cUds < 0) cUds = 5;
+    for (let r = rowHdr + 1; r < raw.length; r++) {
+      const d = txt(r, cDesc);
+      if (/^(Pagament|Pago|Forma de pago|Transport|Total|Termini|Plazo)/i.test(d)) break;
+      const uds = (raw[r] || [])[cUds];
+      if (d && typeof uds === 'number' && uds > 0) linies.push(`${uds}× ${d}`);
+    }
+  }
+  // Concepte per defecte: la subcarpeta (p. ex. "Despatx_408_A"), o el nom del fitxer si la carpeta no diu res
+  const carpeta = parts.length > 2 ? parts[parts.length - 2] : '';
+  const nomFitxer = parts[parts.length - 1].replace(/\.xlsx?$/i, '');
+  const concepteDefecte = (!carpeta || /^ofert/i.test(carpeta) ? nomFitxer : carpeta).replace(/_/g, ' ');
+  return {
+    id: 'F:' + relPath,
+    num_oferta: num, data, codi_client: codi, client, contacte,
+    concepte: concepte || concepteDefecte,
+    descripcio: linies.join('\n'),
+    base: r2(base), iva: r2(iva), total: r2(total), termini,
+    fitxer: relPath,
+  };
+}
+// Fulls resum (com Ofertes_PMC_Facultat_Fisica.xlsx): columnes "Oferta" + "Estat" → estat inicial
+function parseResumEstats(wb) {
+  const out = [];
+  for (const name of wb.SheetNames) {
+    const raw = XLSX.utils.sheet_to_json(wb.Sheets[name], { header: 1, raw: true, defval: '' });
+    for (let r = 0; r < Math.min(raw.length, 15); r++) {
+      const h = (raw[r] || []).map(x => String(x).trim().toLowerCase());
+      const cO = h.indexOf('oferta'), cE = h.indexOf('estat');
+      if (cO < 0 || cE < 0) continue;
+      const cT = h.findIndex(x => x.startsWith('total'));
+      const cC = h.findIndex(x => x.startsWith('comanda'));
+      for (let i = r + 1; i < raw.length; i++) {
+        const row = raw[i] || [];
+        const num = String(row[cO] ?? '').trim();
+        if (!num) continue;
+        const e = String(row[cE] ?? '').toLowerCase();
+        const estat = e.startsWith('accept') ? 'Acceptada' : e.startsWith('rebutj') ? 'Rebutjada'
+          : e.startsWith('servi') ? 'Servida' : e.startsWith('negoci') ? 'Negociació' : '';
+        out.push({ num, estat, total: cT >= 0 ? cmdNum(row[cT]) : 0, comanda: cC >= 0 ? String(row[cC] ?? '').trim() : '' });
+      }
+      break;
+    }
+  }
+  return out;
+}
+
+async function importarCarpetaOfertes(fileList) {
+  const files = [...fileList].filter(f => /\.xlsx?$/i.test(f.name) && !f.name.startsWith('~$'));
+  if (!files.length) { toast('No hi ha cap Excel (.xls/.xlsx) a la carpeta', 3000); return; }
+  const existents = new Map(state.comandes.map(c => [c.id, c]));
+  let nous = 0, actualitzats = 0, saltats = 0, variants = 0, llegits = 0, antigues = 0;
+  const resums = [];
+  for (let i = 0; i < files.length; i++) {
+    const f = files[i];
+    // ruta relativa sense la carpeta arrel triada (així és la mateixa triïs la carpeta que triïs)
+    const rel = (f.webkitRelativePath || f.name).split('/').slice(1).join('/') || f.name;
+    if (/comissi/i.test(f.name)) { variants++; continue; }        // versions amb comissió: duplicats
+    if (f.size > 3 * 1024 * 1024) { saltats++; continue; }        // pressupostos de proveïdor enormes
+    setProgress(`📂 Llegint ofertes… ${i + 1}/${files.length}`);
+    let wb;
+    try { wb = XLSX.read(await f.arrayBuffer(), { type: 'array', cellDates: false }); }
+    catch (e) { saltats++; continue; }
+    const of = parseOfertaWorkbook(wb, f, rel);
+    if (!of) {
+      const r = parseResumEstats(wb);
+      if (r.length) resums.push(...r); else saltats++;
+      continue;
+    }
+    if (of.data && of.data < CMD_DES_DE) { antigues++; continue; }   // ofertes del 2025: no
+    llegits++;
+    const e = existents.get(of.id);
+    if (e && e.eliminada) continue;                               // esborrada a mà: no la ressuscitem
+    if (!e) {
+      const c = { ...of, estat: 'Pendent', data_seguiment: '', motiu_rebuig: '', num_comanda_client: '', notes: '', eliminada: false };
+      await guardarComanda(c); existents.set(c.id, c); nous++;
+    } else {
+      // Actualitzar només el que ve del fitxer; l'estat i les notes són teus
+      let canvi = false;
+      for (const k of ['data', 'base', 'iva', 'total', 'num_oferta', 'termini']) {
+        if (of[k] && of[k] !== e[k]) { e[k] = of[k]; canvi = true; }
+      }
+      for (const k of ['codi_client', 'client', 'contacte', 'concepte', 'descripcio']) {
+        if (!e[k] && of[k]) { e[k] = of[k]; canvi = true; }
+      }
+      if (canvi) { await guardarComanda(e); actualitzats++; }
+    }
+  }
+  // Estats que ja tenies apuntats en fulls resum (només sobre les que encara són Pendent)
+  let estatsResum = 0;
+  for (const r of resums) {
+    let cands = state.comandes.filter(c => !c.eliminada && c.num_oferta === r.num);
+    if (cands.length > 1 && r.total) cands = cands.filter(c => Math.abs((c.total || 0) - r.total) < 1);
+    if (cands.length !== 1) continue;
+    const c = cands[0];
+    let canvi = false;
+    if (r.estat && c.estat === 'Pendent' && r.estat !== 'Pendent') { c.estat = r.estat; canvi = true; }
+    if (r.comanda && !c.num_comanda_client) { c.num_comanda_client = r.comanda; canvi = true; }
+    if (canvi) { await guardarComanda(c); estatsResum++; }
+  }
+  await dbPut(STORES.META, { k: 'lastOfertes', v: new Date().toISOString(), nous, actualitzats });
+  setProgress(`${state.groups.length} clientes cargados`);
+  toast(`📂 ${llegits} ofertes llegides · ${nous} noves · ${actualitzats} actualitzades`
+    + (estatsResum ? ` · ${estatsResum} estats del resum` : '')
+    + (antigues ? ` · ${antigues} del 2025 no incloses` : '')
+    + (variants ? ` · ${variants} versions amb comissió ignorades` : ''), 5000);
+  renderComandes();
+}
+
+/* ---- Filtre i dashboard ---- */
+function comandesFiltrades(ambEstat = true) {
+  const f = state.cf;
+  const q = f.q.trim().toLowerCase();
+  const avui = new Date();
+  let desde = '';
+  if (f.periode === '12m') { const d = new Date(avui); d.setFullYear(d.getFullYear() - 1); desde = d.toISOString().slice(0, 10); }
+  return state.comandes.filter(c => {
+    if (!cmdVigent(c)) return false;
+    if (f.periode === '12m' && (c.data || '') < desde) return false;
+    if (/^\d{4}$/.test(f.periode) && !(c.data || '').startsWith(f.periode)) return false;
+    if (q) {
+      const blob = [c.num_oferta, c.client, c.contacte, c.concepte, c.descripcio, c.codi_client, c.notes, c.num_comanda_client, c.fitxer]
+        .join(' ').toLowerCase();
+      if (!blob.includes(q)) return false;
+    }
+    if (ambEstat) {
+      if (f.nomesSeguiment && !cmdVencut(c)) return false;
+      if (f.estats.size && !f.estats.has(c.estat)) return false;
+    }
+    return true;
+  });
+}
+function nomClientCRM(codi) {
+  if (!codi) return null;
+  return state.groups.find(g => g.id_empresa === String(codi).trim()) || null;
+}
+
+function renderComandes() {
+  state.view = 'comandes';
+  document.body.classList.remove('in-detail');
+  const f = state.cf;
+  const base = comandesFiltrades(false);
+  const llista = comandesFiltrades(true);
+  const suma = (arr) => arr.reduce((s, c) => s + (c.total || 0), 0);
+
+  // KPIs (sobre el període i la cerca, sense el filtre d'estat)
+  const perEstat = Object.fromEntries(CMD_ESTATS.map(e => [e.k, base.filter(c => c.estat === e.k)]));
+  const guanyades = perEstat['Acceptada'].length + perEstat['Servida'].length;
+  const decidides = guanyades + perEstat['Rebutjada'].length;
+  const impGuanyat = suma(perEstat['Acceptada']) + suma(perEstat['Servida']);
+  const impDecidit = impGuanyat + suma(perEstat['Rebutjada']);
+  const vencuts = base.filter(cmdVencut).length;
+  const kpi = (cls, k, lbl, n, sub, on) =>
+    `<button class="cmd-kpi ${cls} ${on ? 'on' : ''}" data-k="${escapeAttr(k)}"><div class="k-lbl">${lbl}</div><div class="k-num">${n}</div><div class="k-sub">${sub}</div></button>`;
+  const kpis = CMD_ESTATS.map(e => kpi(e.cls, e.k, e.lbl, perEstat[e.k].length, euro2(suma(perEstat[e.k])), f.estats.has(e.k))).join('')
+    + kpi('Seguiment', '__seg', '🔔 Seguiments per fer', vencuts, 'data de seguiment vençuda', f.nomesSeguiment)
+    + `<div class="cmd-kpi" style="cursor:default;border-left-color:var(--primary);"><div class="k-lbl">🎯 Taxa d'èxit</div>
+         <div class="k-num">${decidides ? Math.round(guanyades / decidides * 100) + '%' : '—'}</div>
+         <div class="k-sub">${decidides ? `${guanyades}/${decidides} ofertes · ${impDecidit ? Math.round(impGuanyat / impDecidit * 100) : 0}% de l'import` : 'encara cap decidida'}</div></div>`;
+
+  // Ordre
+  const ord = {
+    data:  (a, b) => (b.data || '').localeCompare(a.data || ''),
+    client:(a, b) => (a.client || '').localeCompare(b.client || '') || (b.data || '').localeCompare(a.data || ''),
+    total: (a, b) => (b.total || 0) - (a.total || 0),
+    seg:   (a, b) => (a.data_seguiment || '9999').localeCompare(b.data_seguiment || '9999'),
+  }[f.ordre] || ((a, b) => 0);
+  llista.sort(ord);
+
+  const anys = [...new Set(state.comandes.filter(cmdVigent).map(c => (c.data || '').slice(0, 4)).filter(Boolean))].sort().reverse();
+  const opt = (v, t, sel) => `<option value="${v}" ${sel === v ? 'selected' : ''}>${t}</option>`;
+  const selEstat = (c) => `<select class="cmd-estat ${cmdEstatCls(c.estat)}" data-id="${escapeAttr(c.id)}">`
+    + CMD_ESTATS.map(e => opt(e.k, e.lbl, c.estat)).join('') + `</select>`;
+
+  let files = '', grupActual = null, n = 0;
+  for (const c of llista) {
+    if (f.ordre === 'client' && c.client !== grupActual) {
+      grupActual = c.client;
+      const delGrup = llista.filter(x => x.client === grupActual);
+      files += `<tr class="grp"><td colspan="6">${escapeHtml(grupActual || '(sense client)')} · ${delGrup.length} ofertes · ${euro2(suma(delGrup))}</td></tr>`;
+    }
+    const g = nomClientCRM(c.codi_client);
+    const segTxt = c.data_seguiment
+      ? `<span class="${cmdVencut(c) ? 'cmd-venc' : ''}">🔔 ${isoToDDMMYYYY(c.data_seguiment)}</span>` : '';
+    const extra = [
+      c.estat === 'Rebutjada' && c.motiu_rebuig ? `Motiu: ${escapeHtml(c.motiu_rebuig)}` : '',
+      c.num_comanda_client ? `Comanda client: ${escapeHtml(c.num_comanda_client)}` : '',
+    ].filter(Boolean).join(' · ');
+    files += `<tr>
+      <td class="c-data">${isoToDDMMYYYY(c.data) || '—'}<div class="c-sub">${escapeHtml(c.num_oferta || '')}</div></td>
+      <td class="c-main"><div class="c-client">${escapeHtml(c.client || '—')}${g ? ` <a href="#" data-fitxa="${escapeAttr(g.id_empresa)}" title="Obrir la fitxa del client">↗</a>` : ''}</div>
+        <div>${escapeHtml(c.concepte || '')}</div>
+        <div class="c-sub">${escapeHtml(c.contacte || '')}${extra ? (c.contacte ? ' · ' : '') + extra : ''}</div></td>
+      <td class="num c-tot">${euro2(c.total)}</td>
+      <td class="c-est">${selEstat(c)}</td>
+      <td class="c-seg">${segTxt}</td>
+      <td class="c-act"><button class="cmd-icon" data-edit="${escapeAttr(c.id)}" title="Editar">✏️</button></td>
+    </tr>`;
+    n++;
+  }
+
+  const buit = !state.comandes.some(cmdVigent);
+  main.innerHTML = `<div class="cmd-wrap">
+    <div class="cmd-kpis">${kpis}</div>
+    <div class="cmd-tools">
+      <input type="search" id="cmdSearch" placeholder="Buscar client, oferta, concepte, contacte…" value="${escapeAttr(f.q)}">
+      <select id="cmdPeriode">${opt('tot', '📅 Tot', f.periode)}${opt('12m', 'Últims 12 mesos', f.periode)}${anys.map(a => opt(a, a, f.periode)).join('')}</select>
+      <select id="cmdOrdre">${opt('data', '↕ Més recents', f.ordre)}${opt('client', 'Agrupar per client', f.ordre)}${opt('total', 'Import més alt', f.ordre)}${opt('seg', 'Data de seguiment', f.ordre)}</select>
+      <button class="btn" id="cmdLlegir" title="Tria la carpeta Treballs_especials: llegeix totes les ofertes .xls/.xlsx">📂 Llegir ofertes</button>
+      <button class="btn" id="cmdNova">➕ Nova</button>
+      <button class="btn" id="cmdExcel" title="Excel amb les comandes que es veuen ara">📤 Excel</button>
+    </div>
+    ${buit ? `<div class="empty"><h3>Encara no hi ha comandes</h3>
+        <div>Prem <b>📂 Llegir ofertes</b> i tria la carpeta <b>Treballs_especials</b>: el CRM llegirà totes les ofertes (.xls) amb la plantilla PMC.</div></div>`
+      : `<table class="cmd-table"><thead><tr><th>Data / Oferta</th><th>Client · concepte</th><th style="text-align:right">Total</th><th>Estat</th><th>Seguiment</th><th></th></tr></thead>
+        <tbody>${files || '<tr><td colspan="6" style="text-align:center;color:var(--text-2);padding:20px;">Cap comanda amb aquest filtre</td></tr>'}</tbody></table>`}
+  </div>`;
+  document.getElementById('countPill').textContent = `${n} comandes · ${euro2(suma(llista))}`;
+
+  // Esdeveniments
+  const s = document.getElementById('cmdSearch');
+  s.addEventListener('input', () => { f.q = s.value; const pos = s.selectionStart; renderComandes();
+    const s2 = document.getElementById('cmdSearch'); s2.focus(); s2.setSelectionRange(pos, pos); });
+  document.getElementById('cmdPeriode').onchange = (e) => { f.periode = e.target.value; renderComandes(); };
+  document.getElementById('cmdOrdre').onchange = (e) => { f.ordre = e.target.value; renderComandes(); };
+  document.getElementById('cmdLlegir').onclick = () => document.getElementById('dirInputOfertes').click();
+  document.getElementById('cmdNova').onclick = () => obrirComanda(null);
+  document.getElementById('cmdExcel').onclick = () => exportComandesExcel(llista);
+  main.querySelectorAll('.cmd-kpi[data-k]').forEach(b => b.onclick = () => {
+    const k = b.dataset.k;
+    if (k === '__seg') f.nomesSeguiment = !f.nomesSeguiment;
+    else if (f.estats.has(k)) f.estats.delete(k); else f.estats.add(k);
+    renderComandes();
+  });
+  main.querySelectorAll('select.cmd-estat').forEach(sel => sel.onchange = async () => {
+    const c = state.comandes.find(x => x.id === sel.dataset.id);
+    if (!c) return;
+    if (sel.value === 'Rebutjada') { obrirComanda(c, 'Rebutjada'); return; }   // demanar el motiu
+    c.estat = sel.value;
+    if (!CMD_OBERTS.has(c.estat)) c.data_seguiment = '';   // ja no cal seguiment
+    await guardarComanda(c);
+    toast(`${c.num_oferta || c.client}: ${c.estat}`);
+    renderComandes();
+  });
+  main.querySelectorAll('[data-edit]').forEach(b => b.onclick = () => obrirComanda(state.comandes.find(x => x.id === b.dataset.edit)));
+  main.querySelectorAll('[data-fitxa]').forEach(a => a.onclick = (e) => {
+    e.preventDefault();
+    document.getElementById('filterBar').classList.remove('hide');
+    openDetail(a.dataset.fitxa);
+  });
+}
+
+/* ---- Fitxa d'una comanda (modal) ---- */
+function obrirComanda(c, estatForcat) {
+  const nova = !c;
+  c = c || { id: 'M:' + Date.now().toString(36), estat: 'Pendent', data: avuiISO() };
+  const $ = (id) => document.getElementById(id);
+  $('cm_titol').textContent = nova ? '➕ Nova comanda' : `📋 ${c.num_oferta ? 'Oferta ' + c.num_oferta : 'Comanda'}`;
+  $('cm_estat').innerHTML = CMD_ESTATS.map(e => `<option value="${e.k}">${e.lbl}</option>`).join('');
+  $('cm_id').value = c.id;
+  $('cm_num').value = c.num_oferta || '';
+  $('cm_data').value = c.data || '';
+  $('cm_codi').value = c.codi_client || '';
+  $('cm_contacte').value = c.contacte || '';
+  $('cm_client').value = c.client || '';
+  $('cm_concepte').value = c.concepte || '';
+  $('cm_desc').value = c.descripcio || '';
+  $('cm_base').value = c.base || '';
+  $('cm_total').value = c.total || '';
+  $('cm_estat').value = estatForcat || c.estat || 'Pendent';
+  $('cm_seg').value = c.data_seguiment || '';
+  $('cm_numcli').value = c.num_comanda_client || '';
+  $('cm_motiu').value = c.motiu_rebuig || '';
+  $('cm_notes').value = c.notes || '';
+  $('cm_fitxer').textContent = c.fitxer || '— (entrada manual)';
+  $('cm_del').style.display = nova ? 'none' : '';
+  $('cm_error').style.display = 'none';
+  const motiuVisible = () => { $('cm_motiu_wrap').style.visibility = $('cm_estat').value === 'Rebutjada' ? 'visible' : 'hidden'; };
+  $('cm_estat').onchange = motiuVisible; motiuVisible();
+  $('modalComanda').classList.remove('hide');
+  if (estatForcat === 'Rebutjada') setTimeout(() => $('cm_motiu').focus(), 50);
+  $('modalComanda').dataset.nova = nova ? '1' : '';
+}
+function tancarComanda() {
+  document.getElementById('modalComanda').classList.add('hide');
+  if (state.view === 'comandes') renderComandes();   // desfà el select si s'ha cancel·lat un "Rebutjada"
+}
+async function desarComandaModal() {
+  const $ = (id) => document.getElementById(id);
+  const id = $('cm_id').value;
+  const c = state.comandes.find(x => x.id === id) || { id, eliminada: false, fitxer: '' };
+  const client = $('cm_client').value.trim();
+  if (!client) { $('cm_error').textContent = 'Cal posar el client'; $('cm_error').style.display = 'block'; return; }
+  const num = (v) => { const n = parseFloat(String(v).replace(',', '.')); return isFinite(n) ? n : 0; };
+  Object.assign(c, {
+    num_oferta: $('cm_num').value.trim(), data: $('cm_data').value, codi_client: $('cm_codi').value.trim(),
+    contacte: $('cm_contacte').value.trim(), client, concepte: $('cm_concepte').value.trim(),
+    descripcio: $('cm_desc').value.trim(), base: num($('cm_base').value), total: num($('cm_total').value),
+    estat: $('cm_estat').value, data_seguiment: $('cm_seg').value, num_comanda_client: $('cm_numcli').value.trim(),
+    motiu_rebuig: $('cm_estat').value === 'Rebutjada' ? $('cm_motiu').value.trim() : (c.motiu_rebuig || ''),
+    notes: $('cm_notes').value.trim(),
+  });
+  if (c.base && c.total && !c.iva) c.iva = Math.round((c.total - c.base) * 100) / 100;
+  await guardarComanda(c);
+  toast('💾 Comanda guardada');
+  tancarComanda();
+}
+async function esborrarComandaModal() {
+  const c = state.comandes.find(x => x.id === document.getElementById('cm_id').value);
+  if (!c) return;
+  if (!confirm(`Esborrar la comanda ${c.num_oferta || ''} de ${c.client}?\n(No s'esborra el fitxer de l'oferta.)`)) return;
+  c.eliminada = true;                      // esborrat "suau": així també s'esborra a l'altre aparell en sincronitzar
+  await guardarComanda(c);
+  toast('🗑 Comanda esborrada');
+  tancarComanda();
+}
+
+/* ---- Excel ---- */
+function exportComandesExcel(llista) {
+  if (!llista.length) { toast('No hi ha cap comanda a la llista'); return; }
+  const data = [['Data', 'Oferta', 'Codi client', 'Client', 'Contacte', 'Concepte', 'Productes', 'Base imposable (€)', 'Total (€)',
+                 'Estat', 'Data seguiment', 'Motiu rebuig', 'Nº comanda client', 'Notes', 'Fitxer']];
+  for (const c of llista) data.push([isoToDDMMYYYY(c.data), c.num_oferta, c.codi_client, c.client, c.contacte, c.concepte,
+    c.descripcio, c.base || 0, c.total || 0, c.estat, isoToDDMMYYYY(c.data_seguiment), c.motiu_rebuig, c.num_comanda_client, c.notes, c.fitxer]);
+  const ws = XLSX.utils.aoa_to_sheet(data);
+  ws['!cols'] = [11, 10, 10, 34, 16, 28, 50, 12, 12, 12, 12, 18, 14, 30, 40].map(w => ({ wch: w }));
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Comandes');
+  XLSX.writeFile(wb, `Comandes_mobiliari_${avuiISO().replace(/-/g, '')}.xlsx`);
+  toast(`📤 ${llista.length} comandes exportades`);
+}
+// Full "Comandes" dins l'Excel d'📤 Exportar (per sincronitzar mòbil ↔ portàtil)
+function fullComandesPerExport() {
+  if (!state.comandes.length) return null;
+  const data = [CMD_CAMPS];
+  for (const c of state.comandes) data.push(CMD_CAMPS.map(k => k === 'eliminada' ? (c.eliminada ? 'true' : 'false') : (c[k] ?? '')));
+  return XLSX.utils.aoa_to_sheet(data);
+}
+// Ajunta el full "Comandes" d'un Excel exportat: guanya la versió modificada més recentment
+async function mergeComandesDeFitxer(file) {
+  if (!/\.xlsx?$/i.test(file.name)) return 0;
+  const wb = XLSX.read(await file.arrayBuffer(), { type: 'array', cellDates: false });
+  const sh = wb.Sheets['Comandes'];
+  if (!sh) return 0;
+  const rows = XLSX.utils.sheet_to_json(sh, { defval: '', raw: true });
+  const locals = new Map(state.comandes.map(c => [c.id, c]));
+  const toPut = [];
+  for (const r of rows) {
+    if (!r.id) continue;
+    const c = {};
+    for (const k of CMD_CAMPS) c[k] = r[k] ?? '';
+    for (const k of ['base', 'iva', 'total']) c[k] = cmdNum(c[k]);
+    for (const k of ['id', 'num_oferta', 'codi_client', 'num_comanda_client', 'data', 'data_seguiment', 'modificat', 'creat']) c[k] = String(c[k]);
+    c.eliminada = String(c.eliminada).toLowerCase() === 'true';
+    const e = locals.get(c.id);
+    if (!e || (c.modificat || '') > (e.modificat || '')) toPut.push(c);
+  }
+  if (toPut.length) await dbBulkPut(STORES.COMANDES, toPut);
+  await loadComandes();
+  return toPut.length;
 }
 
 /* ---------- Boot ---------- */
 (async function boot() {
   wire();
   await loadFromDB();
+  await loadComandes();
   applyFilters();
   renderList();
   setProgress(state.groups.length ? `${state.groups.length} clientes cargados` : 'Sin datos: pulsa 📥 Importar');
